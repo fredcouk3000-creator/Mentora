@@ -759,6 +759,401 @@ body.in-app .back-top{display:none!important}
   .avail-grid{grid-template-columns:repeat(4,1fr)}
 }
 
+/* ═══════════════════════════════════════════════════════════
+   COMPREHENSIVE MOBILE OPTIMIZATIONS v6
+══════════════════════════════════════════════════════════ */
+
+/* ── MOBILE APP BOTTOM NAV ──────────────────────────────── */
+.mobile-app-nav{
+  display:none;
+  position:fixed;
+  bottom:0;left:0;right:0;
+  z-index:500;
+  background:#fff;
+  border-top:1px solid rgba(13,31,78,.1);
+  box-shadow:0 -4px 20px rgba(13,31,78,.1);
+  padding:8px 0 max(8px, env(safe-area-inset-bottom));
+}
+.mobile-app-nav-inner{
+  display:flex;align-items:stretch;
+}
+.mnav-item{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:6px 4px;cursor:pointer;
+  font-size:.58rem;font-weight:700;color:rgba(13,31,78,.45);
+  gap:4px;transition:color .2s ease;
+  border:none;background:transparent;
+  -webkit-tap-highlight-color:transparent;
+}
+.mnav-item .mni{font-size:1.3rem;line-height:1}
+.mnav-item span{line-height:1.1;text-align:center}
+.mnav-item.mactive{color:var(--coral)}
+.mnav-item.mactive .mni{
+  background:var(--coral3);
+  border-radius:12px;
+  padding:4px 14px;
+}
+
+/* ── APP SHELL MOBILE OVERRIDES ─────────────────────────── */
+@media(max-width:900px){
+  /* Show mobile bottom nav, add body padding */
+  body.in-app .mobile-app-nav{display:flex;align-items:stretch}
+  body.in-app .app-main{padding-bottom:80px}
+
+  /* Back to site — show icon only */
+  .bts-text{display:none}
+  .back-to-site{font-size:.82rem;padding:6px 10px}
+  /* App top nav compression */
+  .app-nav{padding:0 14px}
+  .app-nav-logo{font-size:1.1rem}
+  .app-nav-logo-mark{width:28px;height:28px;font-size:.85rem}
+  .back-to-site span{display:none}
+  .back-to-site{padding:6px 8px}
+  .app-user-name{display:none}
+  .app-user-chip{padding:4px;background:transparent}
+  .logout-btn{font-size:.72rem;padding:5px 8px}
+  .app-notif{width:30px;height:30px;font-size:.85rem}
+
+  /* App main padding tighter */
+  .app-main{padding:16px 14px}
+
+  /* Tutor grid single column in dashboard */
+  .tutor-grid-d{grid-template-columns:1fr}
+
+  /* Learner cards */
+  .learner-cards-d{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+
+  /* Earn bar row */
+  .earn-bar-lbl{min-width:70px;font-size:.72rem}
+  .earn-bar-val{min-width:55px;font-size:.72rem}
+
+  /* Profile banner wrap */
+  .profile-banner{flex-wrap:wrap;gap:12px}
+  .profile-big-av{width:52px;height:52px;font-size:1.1rem}
+
+  /* Setup prompt */
+  .setup-prompt{flex-wrap:wrap}
+  .setup-btn{margin-left:0;width:100%}
+
+  /* Stats row - keep 2col on tablet */
+  .stats-row{grid-template-columns:1fr 1fr}
+
+  /* Dash grid */
+  .dash-grid{grid-template-columns:1fr}
+
+  /* Settings grid single column */
+  .settings-grid{grid-template-columns:1fr}
+  .settings-full{grid-column:1}
+
+  /* Pay table scroll */
+  .pay-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .pay-table{min-width:480px}
+
+  /* Modal full-ish on mobile */
+  .modal-overlay{padding:12px}
+  .modal-box{border-radius:16px;max-height:92vh}
+
+  /* WhatsApp reposition on mobile in app */
+  body.in-app .wa-float{bottom:80px}
+  body.in-app .back-top{bottom:136px}
+}
+
+/* ── MARKETING SITE MOBILE ──────────────────────────────── */
+@media(max-width:900px){
+  /* Hero stats - wrap with smaller gap */
+  .hero-stats{gap:20px}
+  .hstat-num{font-size:1.6rem}
+  .hstat-label{font-size:.76rem}
+
+  /* Find a tutor filters toggle */
+  .filters-toggle-btn{
+    display:flex;align-items:center;gap:8px;
+    width:100%;padding:12px 16px;
+    background:var(--navy);color:#fff;
+    border-radius:12px;font-weight:700;font-size:.9rem;
+    margin-bottom:16px;cursor:pointer;
+    border:none;justify-content:center;
+  }
+  .filters{
+    display:none;
+    border-radius:var(--radius-md);
+    position:static !important;
+    top:auto !important;
+  }
+  .filters.filters-open{display:block}
+
+  /* Tutor cards grid single col on tablet */
+  .tutor-cards-grid{grid-template-columns:1fr}
+
+  /* Name breakdown stacks */
+  .name-breakdown{grid-template-columns:1fr}
+  .name-divider{padding:8px 0;font-size:1.4rem}
+
+  /* Contact hero padding */
+  .contact-hero{padding:60px 5% 50px}
+
+  /* Section padding */
+  .section{padding:56px 5%}
+
+  /* Footer */
+  .footer-top{gap:28px}
+}
+
+@media(max-width:600px){
+  /* Nav tighter */
+  nav{padding:0 4%}
+  .nav-inner{height:60px}
+  .logo{font-size:1.3rem}
+  .logo-mark{width:32px;height:32px;font-size:.95rem}
+  .page{padding-top:60px}
+  .mobile-menu{top:60px}
+
+  /* Hero */
+  .hero{padding:70px 4% 90px}
+  .hero h1{font-size:clamp(1.8rem,7vw,2.4rem)}
+  .hero-sub{font-size:.95rem;margin-bottom:28px}
+  .hero-badge{font-size:.78rem;padding:6px 14px}
+  .hero-search{border-radius:12px;padding:6px;gap:6px}
+  .hero-search select{padding:10px 10px;font-size:.85rem}
+  .hero-search-btn{padding:10px 16px;font-size:.82rem}
+  .hero-stats{gap:14px}
+  .hstat-num{font-size:1.4rem}
+
+  /* Section spacing */
+  .section{padding:44px 4%}
+  .section-title{font-size:clamp(1.5rem,5vw,2.2rem)}
+  .section-sub{font-size:.9rem}
+
+  /* How steps */
+  .how-steps{gap:14px;margin-top:32px}
+  .step-card{padding:22px 16px}
+  .step-num{width:44px;height:44px;font-size:.95rem}
+
+  /* Subjects tabs scroll */
+  .subjects-tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px;gap:6px}
+  .subjects-tabs::-webkit-scrollbar{height:3px}
+  .subjects-tabs::-webkit-scrollbar-thumb{background:var(--gray2);border-radius:2px}
+  .subj-tab{white-space:nowrap;flex-shrink:0;padding:7px 14px;font-size:.8rem}
+
+  /* Subject grid tighter */
+  .subject-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:9px}
+  .subject-card{padding:12px 8px}
+  .subject-icon{font-size:1.5rem;margin-bottom:6px}
+  .subject-name{font-size:.76rem}
+
+  /* Why grid single column */
+  .why-grid{grid-template-columns:1fr}
+  .why-card{padding:20px}
+  .why-icon{width:44px;height:44px;font-size:1.2rem}
+
+  /* Testimonials */
+  .testimonial-card{padding:20px}
+  .t-text{font-size:.88rem}
+
+  /* CTA banner */
+  .cta-banner{padding:56px 5%}
+  .cta-btns{flex-direction:column;align-items:center}
+  .cta-btns .btn{width:100%;max-width:320px;justify-content:center}
+
+  /* Parents page */
+  .parents-hero{padding:60px 4% 56px}
+  .parents-hero h1{font-size:clamp(1.7rem,6vw,2.4rem)}
+  .benefits-grid{gap:14px}
+  .benefit-card{padding:20px}
+
+  /* Tutors page */
+  .tutors-hero{padding:60px 4% 56px}
+  .tutor-perks{gap:12px}
+  .perk-card{padding:16px}
+
+  /* Find a tutor */
+  .find-header{padding:40px 4% 48px}
+  .find-header h1{font-size:clamp(1.6rem,5.5vw,2.2rem)}
+  .find-search-bar{flex-direction:column;gap:8px}
+  .find-search-bar input{border-radius:10px;background:var(--gray);padding:12px 16px}
+  .find-search-bar button{border-radius:10px;padding:12px}
+  .find-body{padding:20px 4%;gap:0}
+
+  /* Tutor card mobile */
+  .tutor-card{padding:16px}
+  .tc-avatar{width:46px;height:46px;border-radius:11px;font-size:.95rem}
+  .modal-cta{padding:14px 16px;gap:8px}
+  .modal-body{padding:0 16px 16px}
+  .modal-top{padding:16px 16px 0}
+  .modal-stats-row{gap:8px}
+  .modal-stat{padding:8px 10px;min-width:80px}
+
+  /* How It Works page */
+  .how-tabs{flex-wrap:wrap;gap:8px}
+  .how-tab{padding:8px 18px;font-size:.83rem}
+  .timeline{padding:0 4%}
+  .tl-item{gap:14px}
+
+  /* Safety pillars single col */
+  .safety-pillars{grid-template-columns:1fr;gap:14px}
+  .guarantee-banner{padding:28px 20px}
+
+  /* About page */
+  .about-hero{padding:70px 4% 60px}
+  .about-hero h1{font-size:clamp(1.7rem,6vw,2.6rem)}
+  .story-grid{gap:14px}
+  .story-card{padding:22px}
+  .pillars-grid{gap:12px}
+  .pillar-card{padding:20px 16px}
+  .expansion-timeline{gap:0}
+  .exp-phase{padding:18px 14px}
+
+  /* Contact page */
+  .contact-hero{padding:50px 4% 44px}
+  .contact-body{padding:28px 4%}
+  .contact-form-card{padding:22px}
+  .audience-cards{padding:0 4%}
+
+  /* Sign up page */
+  .signup-section{padding:40px 4% 60px}
+  .form-card{padding:22px 18px}
+  .signup-title h2{font-size:1.7rem}
+
+  /* Footer */
+  .footer-top{gap:24px}
+  footer{padding:44px 4% 22px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:14px}
+
+  /* Auth views */
+  .auth-wrap{padding:14px}
+  .auth-box{padding:24px 16px;border-radius:18px}
+  .auth-title{font-size:1.3rem}
+  .auth-logo{font-size:1.2rem;margin-bottom:20px}
+  .role-card{padding:18px 12px}
+  .role-card-icon{font-size:2rem}
+  .role-card h4{font-size:.88rem}
+
+  /* App main view */
+  .app-main{padding:14px 12px}
+  .page-title{font-size:1.2rem}
+  .stat-val{font-size:1.4rem}
+  .stat-card{padding:14px}
+  .stat-icon{width:36px;height:36px;font-size:1rem}
+  .dash-card{padding:16px}
+  .escrow-amt{font-size:1.7rem}
+
+  /* Availability grid on tiny screens */
+  .avail-grid{grid-template-columns:repeat(4,1fr);gap:5px}
+  .day-btn{padding:7px 3px;font-size:.7rem}
+  .time-slots{grid-template-columns:1fr;gap:8px}
+
+  /* Mode options */
+  .mode-opts{gap:7px}
+  .mode-opt{min-width:80px;padding:9px 6px;font-size:.78rem}
+
+  /* Settings card padding */
+  .dash-card.settings-card{padding:14px}
+
+  /* Profile info rows */
+  .profile-banner{padding:18px}
+  .profile-big-av{width:46px;height:46px;font-size:1rem}
+  .profile-banner-name{font-size:1.05rem}
+
+  /* WhatsApp float */
+  .wa-float{width:52px;height:52px;bottom:20px;right:16px}
+  .wa-float svg{width:26px;height:26px}
+  .wa-tooltip{display:none}
+
+  /* Back to top */
+  .back-top{width:40px;height:40px;bottom:84px;right:16px;font-size:1rem}
+}
+
+/* ── EXTRA SMALL ────────────────────────────────────────── */
+@media(max-width:375px){
+  .hero h1{font-size:1.75rem}
+  .hero-stats{grid-template-columns:1fr 1fr;display:grid;gap:10px}
+  .hstat{text-align:center}
+  .nav-inner{height:56px}
+  .page{padding-top:56px}
+  .mobile-menu{top:56px}
+  .subject-grid{grid-template-columns:repeat(2,1fr)}
+  .avail-grid{grid-template-columns:repeat(4,1fr)}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .mnav-item{font-size:.54rem}
+  .mnav-item .mni{font-size:1.15rem}
+}
+
+/* ── FILTERS TOGGLE BUTTON (hidden on desktop) ──────────── */
+.filters-toggle-btn{display:none}
+
+/* ── TOUCH IMPROVEMENTS ─────────────────────────────────── */
+@media(hover:none) and (pointer:coarse){
+  .btn,.auth-btn,.nav-link,.sidebar-item,.tutor-card,
+  .step-card,.faq-q,.subj-tab,.filter-option,
+  .mnav-item,.mobile-menu .nav-link{
+    -webkit-tap-highlight-color:transparent;
+  }
+  /* Slightly larger tap targets */
+  .nav-link{padding:10px 11px}
+  .sidebar-item{padding:12px 14px}
+  .faq-q{padding:20px 22px}
+  .filter-option{padding:10px 12px}
+  /* Remove hover transforms on touch devices */
+  .card:hover,.tutor-card:hover,.step-card:hover,
+  .benefit-card:hover,.why-card:hover{
+    transform:none;
+  }
+}
+
+/* stats-row-3: 3-col on desktop, 2-col tablet, 1-col phone */
+.stats-row-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.stats-row-3{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.stats-row-3{grid-template-columns:1fr}}
+
+/* Filters toggle button — mobile only */
+.filters-toggle-btn{display:none}
+@media(max-width:900px){
+  .filters-toggle-btn{
+    display:flex;align-items:center;gap:8px;justify-content:center;
+    width:100%;padding:13px 18px;
+    background:var(--navy);color:#fff;
+    border-radius:12px;font-weight:700;font-size:.9rem;
+    margin-bottom:16px;cursor:pointer;border:none;
+    -webkit-tap-highlight-color:transparent;
+  }
+}
+
+/* Mobile app nav: desktop hidden, mobile shown via in-app class */
+@media(min-width:901px){.mobile-app-nav{display:none !important}}
+
+/* iOS scroll smoothing */
+.app-main,.modal-box,.app-sidebar{-webkit-overflow-scrolling:touch}
+
+/* Prevent iOS input zoom (requires font-size >= 16px) */
+@media(max-width:600px){
+  .afg input,.afg select,
+  .form-group input,.form-group select,
+  .dsearch-bar input,.find-search-bar input,
+  .filter-select,.results-sort,.rate-wrap input{
+    font-size:16px !important;
+  }
+}
+
+/* Safe-area insets for notched iPhones */
+@supports(padding-bottom:env(safe-area-inset-bottom)){
+  .mobile-app-nav{
+    padding-bottom:calc(8px + env(safe-area-inset-bottom));
+  }
+  body.in-app .app-main{
+    padding-bottom:calc(80px + env(safe-area-inset-bottom));
+  }
+  body.in-app .wa-float{
+    bottom:calc(80px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Horizontal scroll on mobile for tabs and tables */
+@media(max-width:900px){
+  .how-tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    padding-bottom:6px;justify-content:flex-start}
+  .how-tab{white-space:nowrap;flex-shrink:0}
+}
+
 </style>
 </head>
 <body>
@@ -1079,7 +1474,8 @@ body.in-app .back-top{display:none!important}
     </div>
   </div>
   <div class="find-body">
-    <div class="filters">
+    <button class="filters-toggle-btn" onclick="toggleFilters(this)">🔍 Filter &amp; Sort Tutors ▼</button>
+    <div class="filters" id="tutor-filters">
       <h3>🔍 Filter Tutors</h3>
       <div class="filter-group">
         <label>Level</label>
@@ -2325,7 +2721,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     <nav class="app-nav">
       <div class="app-nav-logo"><div class="app-nav-logo-mark">M</div>Mentora™</div>
       <div class="app-nav-right">
-        <div class="back-to-site" onclick="exitApp()">← Mentora Website</div>
+        <div class="back-to-site" onclick="exitApp()">← <span class="bts-text">Website</span></div>
         <div class="app-notif">🔔<div class="notif-dot"></div></div>
         <div class="app-user-chip">
           <div class="app-avatar" id="p-nav-av" style="background:var(--coral)">PA</div>
@@ -2414,13 +2810,13 @@ document.addEventListener('DOMContentLoaded',()=>{
         <div class="page-header"><h1 class="page-title">Payments</h1><p class="page-sub">Your escrow wallet and full payment history. Your money is always protected.</p></div>
         <div class="escrow-card"><div class="escrow-lbl">Protected Escrow Balance</div><div class="escrow-amt">₦30,000</div><div class="escrow-sub">Held safely until your sessions are confirmed complete.</div></div>
         <div class="dash-card"><div class="dcard-head"><span class="dcard-title">Transaction History</span></div>
-          <table class="pay-table"><thead><tr><th>Date</th><th>Description</th><th>Amount</th><th>Status</th></tr></thead>
+          <div class="pay-table-wrap"><table class="pay-table"><thead><tr><th>Date</th><th>Description</th><th>Amount</th><th>Status</th></tr></thead>
           <tbody>
             <tr><td>Today</td><td>Mathematics — Adaeze Okonkwo (2-hr)</td><td>₦15,000</td><td><span class="sbadge sbadge-yellow">In Escrow</span></td></tr>
             <tr><td>Today</td><td>Further Mathematics — Tunde Fashola (2-hr)</td><td>₦15,000</td><td><span class="sbadge sbadge-yellow">In Escrow</span></td></tr>
             <tr><td>Last week</td><td>English Language — Chukwuemeka Obi (2-hr)</td><td>₦12,000</td><td><span class="sbadge sbadge-green">Released</span></td></tr>
             <tr><td>Last week</td><td>Chemistry — Fatimah Abdullahi (2-hr)</td><td>₦18,000</td><td><span class="sbadge sbadge-green">Released</span></td></tr>
-          </tbody></table>
+          </tbody></table></div>
         </div>
       </div>
       <div id="p-messages" class="sec-view hidden">
@@ -2433,6 +2829,26 @@ document.addEventListener('DOMContentLoaded',()=>{
       </div>
     </main>
   </div>
+  <!-- PARENT MOBILE BOTTOM NAV -->
+  <nav class="mobile-app-nav" id="p-mobile-nav">
+    <div class="mobile-app-nav-inner">
+      <button class="mnav-item mactive" id="pm-overview" onclick="pNav('overview');mNavActive('pm-overview')">
+        <span class="mni">🏠</span><span>Home</span>
+      </button>
+      <button class="mnav-item" id="pm-find" onclick="pNav('find');mNavActive('pm-find')">
+        <span class="mni">🔍</span><span>Find</span>
+      </button>
+      <button class="mnav-item" id="pm-sessions" onclick="pNav('sessions');mNavActive('pm-sessions')">
+        <span class="mni">📅</span><span>Sessions</span>
+      </button>
+      <button class="mnav-item" id="pm-progress" onclick="pNav('progress');mNavActive('pm-progress')">
+        <span class="mni">📊</span><span>Progress</span>
+      </button>
+      <button class="mnav-item" id="pm-payments" onclick="pNav('payments');mNavActive('pm-payments')">
+        <span class="mni">💳</span><span>Payments</span>
+      </button>
+    </div>
+  </nav>
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
@@ -2443,7 +2859,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     <nav class="app-nav">
       <div class="app-nav-logo"><div class="app-nav-logo-mark">M</div>Mentora™</div>
       <div class="app-nav-right">
-        <div class="back-to-site" onclick="exitApp()">← Mentora Website</div>
+        <div class="back-to-site" onclick="exitApp()">← <span class="bts-text">Website</span></div>
         <div class="app-notif">🔔<div class="notif-dot"></div></div>
         <div class="app-user-chip">
           <div class="app-avatar" id="t-nav-av" style="background:var(--purple)">TA</div>
@@ -2531,7 +2947,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       </div>
       <div id="t-earnings" class="sec-view hidden">
         <div class="page-header"><h1 class="page-title">Earnings</h1><p class="page-sub">Your payout tracker. Mentora releases your earnings after each confirmed session.</p></div>
-        <div class="stats-row" style="grid-template-columns:1fr 1fr 1fr">
+        <div class="stats-row stats-row-3">
           <div class="stat-card"><div class="stat-icon" style="background:var(--green3)">💰</div><div class="stat-val">₦0</div><div class="stat-label">Total Earned</div></div>
           <div class="stat-card"><div class="stat-icon" style="background:var(--yellow3)">⏳</div><div class="stat-val">₦0</div><div class="stat-label">Pending Release</div></div>
           <div class="stat-card"><div class="stat-icon" style="background:var(--purple3)">📊</div><div class="stat-val">0</div><div class="stat-label">Sessions Done</div></div>
@@ -2545,9 +2961,27 @@ document.addEventListener('DOMContentLoaded',()=>{
       </div>
     </main>
   </div>
+  <!-- TUTOR MOBILE BOTTOM NAV -->
+  <nav class="mobile-app-nav" id="t-mobile-nav">
+    <div class="mobile-app-nav-inner">
+      <button class="mnav-item mactive" id="tm-overview" onclick="tNav('overview');mNavActive('tm-overview')">
+        <span class="mni">🏠</span><span>Home</span>
+      </button>
+      <button class="mnav-item" id="tm-schedule" onclick="tNav('schedule');mNavActive('tm-schedule')">
+        <span class="mni">📅</span><span>Schedule</span>
+      </button>
+      <button class="mnav-item" id="tm-settings" onclick="tNav('settings');mNavActive('tm-settings')">
+        <span class="mni">⚙️</span><span>Settings</span>
+      </button>
+      <button class="mnav-item" id="tm-earnings" onclick="tNav('earnings');mNavActive('tm-earnings')">
+        <span class="mni">💰</span><span>Earnings</span>
+      </button>
+      <button class="mnav-item" id="tm-profile" onclick="tNav('profile');mNavActive('tm-profile')">
+        <span class="mni">👤</span><span>Profile</span>
+      </button>
+    </div>
+  </nav>
 </div>
-
-<!-- BOOKING MODAL -->
 <div class="modal-overlay hidden" id="booking-modal" onclick="if(event.target.id==='booking-modal')document.getElementById('booking-modal').classList.add('hidden')">
   <div class="modal-box">
     <div class="modal-head"><div class="modal-title" id="bm-title">Book a Session</div><button class="modal-close" onclick="document.getElementById('booking-modal').classList.add('hidden')">✕</button></div>
@@ -2597,6 +3031,30 @@ document.addEventListener('DOMContentLoaded',()=>{
 // ═══════════════════════════════════════════════════════════════
 // MENTORA APP — AUTH + DASHBOARD INTEGRATION
 // ═══════════════════════════════════════════════════════════════
+
+// ── MOBILE HELPERS ─────────────────────────────────────────────
+function mNavActive(id){
+  // Determine prefix (pm- or tm-) and reset all sibling items
+  const prefix=id.startsWith('pm-')?'pm-':'tm-';
+  ['overview','find','sessions','progress','payments','schedule','settings','earnings','profile','learners','messages'].forEach(s=>{
+    const el=document.getElementById(prefix+s);
+    if(el)el.classList.remove('mactive');
+  });
+  const active=document.getElementById(id);
+  if(active)active.classList.add('mactive');
+}
+
+function toggleFilters(btn){
+  const f=document.getElementById('tutor-filters');
+  if(!f)return;
+  const open=f.classList.toggle('filters-open');
+  btn.textContent=open?'🔍 Hide Filters ▲':'🔍 Filter & Sort Tutors ▼';
+}
+
+// Patch pNav to also update mobile nav active state
+const _origPNav=typeof pNav!=='undefined'?pNav:null;
+
+// ── END MOBILE HELPERS ─────────────────────────────────────────
 
 function showAppView(id){
   document.body.classList.add('in-app');
@@ -2739,10 +3197,13 @@ function pNav(sec){
   ['overview','find','children','sessions','progress','payments','messages'].forEach(s=>{
     const el=document.getElementById('p-'+s);if(el)el.classList.add('hidden');
     const si=document.getElementById('ps-'+s);if(si)si.classList.remove('sactive');
+    const mi=document.getElementById('pm-'+s);if(mi)mi.classList.remove('mactive');
   });
   const el=document.getElementById('p-'+sec);if(el)el.classList.remove('hidden');
   const si=document.getElementById('ps-'+sec);if(si)si.classList.add('sactive');
+  const mi=document.getElementById('pm-'+sec);if(mi)mi.classList.add('mactive');
   if(sec==='find')renderDPTutors(TUTORS);
+  window.scrollTo(0,0);
 }
 
 function renderPOverview(user){
@@ -2866,9 +3327,12 @@ function tNav(sec){
   ['overview','profile','settings','schedule','learners','earnings','messages'].forEach(s=>{
     const el=document.getElementById('t-'+s);if(el)el.classList.add('hidden');
     const si=document.getElementById('ts-'+s);if(si)si.classList.remove('sactive');
+    const mi=document.getElementById('tm-'+s);if(mi)mi.classList.remove('mactive');
   });
   const el=document.getElementById('t-'+sec);if(el)el.classList.remove('hidden');
   const si=document.getElementById('ts-'+sec);if(si)si.classList.add('sactive');
+  const mi=document.getElementById('tm-'+sec);if(mi)mi.classList.add('mactive');
+  window.scrollTo(0,0);
 }
 
 function renderTOverview(user){
