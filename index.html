@@ -514,9 +514,9 @@ body.in-app .back-top{display:none!important}
 .auth-wrap::before{content:'';position:absolute;top:-20%;left:-10%;width:500px;height:500px;background:rgba(255,85,51,.08);border-radius:50%}
 .auth-wrap::after{content:'';position:absolute;bottom:-15%;right:-5%;width:400px;height:400px;background:rgba(108,63,245,.1);border-radius:50%}
 .auth-box{background:#fff;border-radius:24px;padding:40px;width:100%;max-width:460px;box-shadow:0 24px 80px rgba(0,0,0,.25);position:relative;z-index:1}
-.auth-logo{display:flex;align-items:center;gap:10px;font-family:'Nunito',sans-serif;font-weight:900;font-size:1.35rem;color:var(--navy);margin-bottom:28px;justify-content:center}
+.auth-logo{display:flex;align-items:center;gap:10px;font-family:'Nunito',sans-serif;font-weight:900;font-size:1.35rem;color:var(--navy);margin-bottom:28px;justify-content:center;padding-top:30px}
 .auth-logo-mark{width:36px;height:36px;background:linear-gradient(135deg,var(--coral),var(--purple));border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:1rem}
-.auth-back{position:absolute;top:16px;left:16px;font-size:.78rem;color:var(--t-light);cursor:pointer;font-weight:600;display:flex;align-items:center;gap:4px;transition:color .2s}
+.auth-back{position:absolute;top:16px;left:16px;font-size:.78rem;color:var(--t-light);cursor:pointer;font-weight:600;display:flex;align-items:center;gap:4px;transition:color .2s;z-index:2;background:rgba(255,255,255,.9);padding:4px 8px;border-radius:6px}
 .auth-back:hover{color:var(--coral)}
 .auth-title{font-size:1.5rem;font-weight:900;color:var(--navy);text-align:center;margin-bottom:6px}
 .auth-sub{font-size:.88rem;color:var(--t-mid);text-align:center;margin-bottom:28px;line-height:1.5}
@@ -1105,6 +1105,12 @@ body.in-app .back-top{display:none!important}
 @media(max-width:900px){.stats-row-3{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.stats-row-3{grid-template-columns:1fr}}
 
+/* Hero mobile CTA — hidden on desktop (nav has it), shown on mobile */
+.hero-mobile-cta{display:none;flex-direction:column;align-items:center;text-align:center}
+@media(max-width:900px){
+  .hero-mobile-cta{display:flex}
+}
+
 /* Filters toggle button — mobile only */
 .filters-toggle-btn{display:none}
 @media(max-width:900px){
@@ -1217,6 +1223,11 @@ body.in-app .back-top{display:none!important}
         <div class="hstat"><div class="hstat-num" data-target="50">0</div><div class="hstat-label">Subjects Covered</div></div>
         <div class="hstat"><div class="hstat-num" data-target="1200">0</div><div class="hstat-label">Happy Families</div></div>
         <div class="hstat"><div class="hstat-num" data-target="98">0</div><div class="hstat-label">% Payment Protected</div></div>
+      </div>
+      <!-- Mobile-only CTA — desktop already has "Get Started Free" in the nav -->
+      <div class="hero-mobile-cta">
+        <button class="btn btn-coral btn-lg" onclick="enterApp()" style="width:100%;max-width:320px;justify-content:center;margin-top:32px">Get Started Free →</button>
+        <p style="font-size:.78rem;color:rgba(255,255,255,.55);margin-top:10px">No subscription. Free to join.</p>
       </div>
     </div>
   </div>
